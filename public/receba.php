@@ -1,13 +1,26 @@
 <?php
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
-
-    if($email == 'gustavomallmann3@gmail.com' && $pass == '1234') {
-        $msg = 'Bem vindo!';
-        $redirect = "<meta http-equiv='refresh' content='3; url=htts://www.qi.edu.br'>";
+    if( isset($_POST['email'])) {
+        $email = $_POST['email'];
     } else {
-        $msg = 'Acesso Negado!';
-        $redirect = "<meta http-equiv='refresh' content='3; url=../index.php'>";
+        $email = null;
+    }
+    if(isset($_POST['pass'])) {
+        $pass = $_POST['pass'];
+    } else {
+        $pass = null;
+    }
+    // o if faz com que, caso nao receba nenhum dado post, no caso cliclando como visitante, ele trata o post como nulo
+    
+    
+    
+    if($email != null && $pass != null) {
+        if($email == 'gustavomallmann3@gmail.com' && $pass == '1234') {
+            $msg = 'Bem vindo!';
+            $redirect = "<meta http-equiv='refresh' content='3; url=htts://www.qi.edu.br'>";
+        } else {
+            $msg = 'Acesso Negado!';
+            $redirect = "<meta http-equiv='refresh' content='3; url=../index.php'>";
+        }
     }
 ?>
 
@@ -22,9 +35,21 @@
 </head>
 <body>
     <h1>
-        <?php echo $msg?>
-        <?= $redirect?>
+        <?= (isset($msg) ? $msg : "Visitante")?>
     </h1>
+    <?= (isset($redirect) ? $redirect : "<hr>")?>
+
+    <form action="checkbox.php" method="get">
+        <input type="checkbox" name="ingredientes[]" value="Pão">Pão<br>
+        <input type="checkbox" name="ingredientes[]" value="Queijo">Queijo<br>
+        <input type="checkbox" name="ingredientes[]" value="Hamburguer">Hamburguer<br>
+        <input type="checkbox" name="ingredientes[]" value="Molho">Molho<br>
+        <input type="checkbox" name="ingredientes[]" value="Alface">Alface<br>
+        <input type="checkbox" name="ingredientes[]" value="Picles">Picles<br>
+        <br><br>
+        <input type="submit" value="Fazer Pedido">
+        <input type="reset" value="Reiniciar">
+    </form>
     
 </body>
 </html>

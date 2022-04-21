@@ -13,11 +13,11 @@
         <br>
         <input type="password" name="pass" placeholder="Digite sua senha" required>
         <br><br>
-
         <input type="submit" value="Enviar dados">
         &nbsp
         <input type="reset" value="Limpar dados">
-
+        <br><br>
+        <a href="receba.php">Entrar como Visitante</a>
     </form>
     
 </body>
