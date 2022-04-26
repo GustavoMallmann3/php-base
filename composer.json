@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Gusta\\Gustavo\\": "src/"
+            "Src\\": "src/",
+            "Model\\": "src/model"
         }
     },
     "authors": [

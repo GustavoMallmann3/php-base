@@ -38,7 +38,7 @@
         <?= (isset($msg) ? $msg : "Visitante")?>
     </h1>
     <?= (isset($redirect) ? $redirect : "<hr>")?>
-
+    
     <form action="checkbox.php" method="get">
         <input type="checkbox" name="ingredientes[]" value="Pão">Pão<br>
         <input type="checkbox" name="ingredientes[]" value="Queijo">Queijo<br>
@@ -46,6 +46,27 @@
         <input type="checkbox" name="ingredientes[]" value="Molho">Molho<br>
         <input type="checkbox" name="ingredientes[]" value="Alface">Alface<br>
         <input type="checkbox" name="ingredientes[]" value="Picles">Picles<br>
+
+        <hr>
+        Quantidade:
+        <input type="number" name="qtde" value="1" min="1">
+        <hr>
+        Pagamento:
+        <input type="radio" name="pgto" value="Dinheiro"> Dinheiro
+        <input type="radio" name="pgto" value="Pix"> Pix
+        <input type="radio" name="pgto" value="Cartão"> Cartão
+        <hr>
+        Entrega:
+        <select name="entrega" require>
+            <option value="">Selecione...</option>
+            <option value="Viamão">Viamão</option>
+            <option value="Gravatai">Gravatai</option>
+            <option value="Alvorada">lvorada</option>
+            <option value="Canoas">Canoas</option>
+            <option value="Porto Alegre">Porto Alegre</option>
+
+        </select>
+
         <br><br>
         <input type="submit" value="Fazer Pedido">
         <input type="reset" value="Reiniciar">
