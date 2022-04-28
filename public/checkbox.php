@@ -1,27 +1,33 @@
 <?php
 
-    if(isset($_GET['ingredientes'])) {
-        $ingredientes = $_GET['ingredientes'];
+use Model\Pedido;
+
+    require_once '../vendor/autoload.php';
+
+    $ped = new Pedido();  //Criação do objeto...
+
+    if( isset($_GET['ingredientes'])) {
+        $ped->itens = $_GET['ingredientes'];  //preenchido com atributo 'itens'
     } else {
-        $ingredientes = null;
+        $ped->itens = null;
     }
 
-    if(isset($_GET['qtde'])) {
-        $qtde = $_GET['qtde'];
+    if( isset($_GET['qtde'])) {
+        $ped->qtde = $_GET['qtde']; //preenchido com atributo 'qtde'
     } else {
-        $qtde = null;
+        $ped->qtde = null;
     }
 
-    if(isset($_GET['pgto'])) {
-        $pgto = $_GET['pgto'];
+    if( isset($_GET['pgto'])) {
+        $ped->pgto = $_GET['pgto']; //preenchido com atributo 'pgto'
     } else {
-        $pgto = null;
+        $ped->pgto = null;
     }
 
-    if(isset($_GET['entrega'])) {
-        $entrega = $_GET['entrega'];
+    if( isset($_GET['entrega'])) {
+        $ped->entrega = $_GET['entrega']; //preenchido com atributo 'entrega'
     } else {
-        $entrega = null;
+        $ped->entrega = null;
     }
 
 
@@ -35,8 +41,14 @@
     <title>Listagem de dados</title>
 </head>
 <body>
-    <?php if($ingredientes != null) : ?>
-        <?php foreach($ingredientes as $i) : ?>
+
+    <h3>
+        <?= $ped->gerarCodigo(); ?>
+        <?= $ped->darDesconto(); ?>
+    </h3>
+
+    <?php if($ped->itens != null) : ?>
+        <?php foreach($ped->itens as $i) : ?>
             <!-- nossa estrutura html se repetira dependendo do numero de itens da lista -->
         <h3 style="font-family: 'Courier New', Courier, monospace;">
             <?= $i ?>
@@ -48,13 +60,13 @@
     ?>
 
     <h3 style="font-family: 'Courier New', Courier, monospace;">
-        <?= $qtde ?>
+        <?= $ped->qtde ?>
     </h3><hr>
     <h3 style="font-family: 'Courier New', Courier, monospace;">
-        <?= $pgto ?>
+        <?= $ped->pgto ?>
     </h3><hr>
     <h3 style="font-family: 'Courier New', Courier, monospace;">
-            <?= $entrega ?>
+            <?= $ped->entrega ?>
     </h3><hr>
 
 </body>
