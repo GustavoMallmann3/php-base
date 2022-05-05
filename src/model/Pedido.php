@@ -15,9 +15,18 @@ class Pedido
     public function __construct()
     {
         //Executará assim que um novo objeto dessa classe for criado 
-        echo "Novo objeto criado!";
-
+        echo $this->gerarCodigo();
+        echo $this->informarData();
     }
+
+    private function informarData()
+    {
+        // informa o fuso horario
+        date_default_timezone_set("America/Sao_Paulo");
+        // informa a data e hora 
+        return "Data e hora do pedido: " . date("d/m/Y - H:i:s");
+    }
+        
 
     public function gerarCodigo()
     {

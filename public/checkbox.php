@@ -30,8 +30,6 @@ use Model\Pedido;
         $ped->entrega = null;
     }
 
-
-
 ?>
 
 <!DOCTYPE html>

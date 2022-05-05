@@ -1,0 +1,9 @@
+.login-center {
+    background-color: rgba(60, 189, 73, 0.2);
+    border-radius: 2%;
+    padding: 5%;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+}
